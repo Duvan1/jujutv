@@ -1,10 +1,34 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'characters',
+    pathMatch: 'full',
+  },
+  {
+    path: 'characters',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'episodes',
+    loadChildren: () =>
+      import('./episodes/episodes.module').then((m) => m.EpisodesModule),
+  },
+  {
+    path: 'locations',
+    loadChildren: () =>
+      import('./locations/locations.module').then((m) => m.LocationsModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'dashboard',
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

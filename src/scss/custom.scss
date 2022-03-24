@@ -1,0 +1,15 @@
+body {
+  overflow-x: hidden;
+}
+
+.card {
+  border-radius: 16px;
+  -webkit-box-shadow: 5px 5px 6px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 6px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  img {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,49 @@
+<div class="card-columns my-4" *ngIf="characters">
+  <div
+    class="card m-2"
+    *ngFor="let character of characters; let i = index"
+  >
+    <img [src]="character.image" alt="" [routerLink]="[character.id, 'summary']"/>
+
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ character.name }}</h5>
+      <div class="row">
+        <div class="col-6 pr-0"><strong>Última Ubicación:</strong></div>
+        <div class="col-6 pl-0">
+          <span class="float-right text-break">{{
+            character.location.name
+          }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 pr-0"><strong>Estado:</strong></div>
+        <div class="col-6 pl-0">
+          <span class="float-right text-break">{{ character.status }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 pr-0"><strong>Especie:</strong></div>
+        <div class="col-6 pl-0">
+          <span class="float-right text-break">{{ character.species }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 pr-0"><strong>Primera aparición:</strong></div>
+        <div class="col-6 pl-0">
+          <span class="float-right text-break"
+            ><a
+              class="link"
+              (click)="goToDetails(getLocationName(character.episode[0])?.id)"
+              >{{ getLocationName(character.episode[0])?.name }}</a
+            ></span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-paginator
+  *ngIf="pagesCharacter"
+  [pagesRes]="pagesCharacter"
+  (pageAction)="getCharacters($event)"
+></app-paginator>

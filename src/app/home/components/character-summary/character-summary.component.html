@@ -1,0 +1,45 @@
+<div class="card my-4" *ngIf="character">
+  <div class="card-horizontal">
+    <div class="img-square-wrapper">
+      <img [src]="character.image" alt="" style="border-top-right-radius: 0" />
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">{{ character.name }}</h4>
+      <div class="card-text h-100 align-item-between">
+        <div class="row my-1">
+          <div class="col-6"><strong>Genero</strong></div>
+          <div class="col-6">
+            <span>{{ character.gender }}</span>
+          </div>
+        </div>
+        <div class="row my-1">
+          <div class="col-6"><strong>Estado</strong></div>
+          <div class="col-6">
+            <span>{{ character.status }}</span>
+          </div>
+        </div>
+        <div class="row my-1">
+          <div class="col-6"><strong>Ubicación</strong></div>
+          <div class="col-6">
+            <span>{{ character.location.name }}</span>
+          </div>
+        </div>
+        <div class="row my-1">
+          <div class="col-6"><strong>Especie</strong></div>
+          <div class="col-6">
+            <span>{{ character.species }}</span>
+          </div>
+        </div>
+        <div class="row my-1">
+          <div class="col-6"><strong>Origen</strong></div>
+          <div class="col-6">
+            <span>{{ character.origin.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Creado el {{ character.created | date }}</small>
+  </div>
+</div>

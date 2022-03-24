@@ -1,0 +1,11 @@
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+  @media only screen and (max-width: 375px) {
+    display: block;
+  }
+}
+
+.img-square-wrapper {
+  width: 100%;
+}

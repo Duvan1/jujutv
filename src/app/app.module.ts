@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ServicesInjection } from 'src/lib/services/dependencyInjection';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, NavbarComponent, FooterComponent],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
+  providers: [ServicesInjection],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

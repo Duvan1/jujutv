@@ -1,0 +1,41 @@
+<div class="card my-4" *ngIf="location">
+  <div class="card-horizontal">
+    <div class="img-square-wrapper">
+      <img
+        src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+        alt=""
+        style="border-top-right-radius: 0"
+      />
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">{{ location.name }}</h4>
+      <div class="card-text h-100 align-item-between">
+        <div class="row my-1">
+          <div class="col-6"><strong>Dimesion:</strong></div>
+          <div class="col-6">
+            <span>{{ location.dimension }}</span>
+          </div>
+        </div>
+        <div class="row my-1">
+          <div class="col-6"><strong>Tipo</strong></div>
+          <div class="col-6">
+            <span>{{ location.type }}</span>
+          </div>
+        </div>
+        <div class="row my-1">
+          <div class="col-12"><strong>Residentes</strong></div>
+          <div class="col-12">
+            <span
+              class="text-right text-break"
+              *ngFor="let char of getCharactersName(location.residents)"
+              >{{ char }}, </span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Creado el {{ location.created | date }}</small>
+  </div>
+</div>

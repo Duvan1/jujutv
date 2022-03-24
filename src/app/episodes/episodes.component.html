@@ -1,0 +1,45 @@
+<div class="card-columns mt-4" *ngIf="episodes && characters">
+  <div class="card m-2" *ngFor="let episode of episodes; let i = index">
+    <!--[routerLink]="[episode.id, 'summary']"-->
+
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ episode.name }}</h5>
+      <div class="row">
+        <div class="col-6 pr-0"><strong>Codigo:</strong></div>
+        <div class="col-6 pl-0">
+          <span class="float-right text-break">{{ episode.episode }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 pr-0"><strong>Fecha de creación:</strong></div>
+        <div class="col-6 pl-0">
+          <span class="float-right text-break">{{
+            episode.created | date
+          }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 pr-0"><strong>Emitido:</strong></div>
+        <div class="col-6 pl-0">
+          <span class="float-right text-break">{{ episode.air_date }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 pr-0"><strong>Personajes:</strong></div>
+        <div class="col-8 pl-0">
+          <span
+            class="text-right text-break"
+            *ngFor="let char of getCharactersName(episode.characters)"
+            >{{ char }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-paginator
+  *ngIf="pagesEpisodes"
+  [pagesRes]="pagesEpisodes"
+  (pageAction)="getEpisodes($event)"
+></app-paginator>
